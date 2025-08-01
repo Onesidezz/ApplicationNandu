@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Birla Money Limited - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #d32f2f;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            padding: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-240px);
+        }
+
+        .sidebar h4 {
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar a:hover {
+            background-color: #b71c1c;
+        }
+
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.expanded {
+            margin-left: 0;
+        }
+
+        .top-bar {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .cta-buttons .btn {
+            margin-right: 10px;
+        }
+
+        .feature-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cta-main {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ffeeba;
+            margin-bottom: 20px;
+        }
+
+        .cta-main img {
+            max-width: 100%;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h4>Aditya Birla Capital</h4>
+        <a href="#">Markets</a>
+        <a href="#">Products</a>
+        <a href="#">Research</a>
+        <a href="#">Learn</a>
+        <a href="#">Support</a>
+        <a href="#">Partner Us</a>
+        <a href="#">Login</a>
+        <a href="#">Open an Account</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="content" id="content">
+        <div class="top-bar">
+            <span class="menu-toggle" onclick="toggleSidebar()">&#9776;</span>
+            <span>Aditya Birla Money Limited</span>
+            <div class="cta-buttons">
+                <button class="btn btn-light btn-sm">Refer & Earn</button>
+                <button class="btn btn-outline-light btn-sm">Track Application</button>
+            </div>
+        </div>
+
+        <div class="cta-main mt-4">
+            <h3>Introducing <span style="color:#d32f2f;">Elevate</span> - The New Era of Investing</h3>
+            <p>Invest with confidence in Stocks, Mutual Funds, IPOs, Derivatives, and Bonds.</p>
+            <div class="d-flex justify-content-start align-items-center mt-3">
+                <a href="#" class="btn btn-danger">Sign Up Now</a>
+                <a href="#" class="btn btn-outline-danger ms-2">Track Application</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>Margin Trade Funding</h5>
+                    <p>Get up to 5X leverage on 1400+ NSE & BSE Stocks</p>
+                    <a href="#">Sign Up</a> | <a href="#">Activate MTF</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>IPO Opportunities</h5>
+                    <p>Pre-apply online | Apply via WhatsApp</p>
+                    <a href="#">Sign Up</a> | <a href="#">Know More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Aditya Birla Money Limited. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            const overlay = document.getElementById('overlay');
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            content.classList.toggle('expanded', isCollapsed);
+            overlay.classList.toggle('active', !isCollapsed);
+        }
+    </script>
+
+</body>
+</html>
